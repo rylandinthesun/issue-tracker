@@ -1,0 +1,141 @@
+.task {
+	margin: 10px 0;
+	padding: 10px 12px;
+	border-radius: 4px;
+	border-left: 5px solid #548ca8;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 2px 2px rgba(0, 0, 0, 0.3), 0 4px 4px rgba(0, 0, 0, 0.3);
+	animation-name: appear;
+	animation-duration: 0.3s;
+	background-color: rgba(255, 255, 255, 0.2);
+	border-top: 1px solid rgba(255, 255, 255, 0.3);
+	border-right: 1px solid rgba(255, 255, 255, 0.3);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.task h3 {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-family: 'Merriweather', serif;
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+.task h3 section div {
+	font-size: 0.7rem;
+	padding: 4px 20px;
+	background-color: #548ca8;
+	color: #f4f4f4;
+	border-radius: 40px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	margin-right: 10px;
+	white-space: nowrap;
+}
+
+.task h3 section svg {
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+
+.task h3 section {
+	display: flex;
+}
+
+.task p {
+	text-align: center;
+	margin: 20px 0;
+	font-weight: 300;
+}
+
+.day {
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.day p {
+	color: rgba(255, 255, 255, 0.8);
+	margin-top: 10px;
+	font-size: 0.9rem;
+	margin-bottom: 0;
+}
+
+.day p span {
+	font-weight: 600;
+}
+
+.done {
+	border: none;
+	outline: none;
+	font-size: 0.8rem;
+	padding: 10px 50px;
+	background-color: #346751;
+	color: #f4f4f4;
+	border-radius: 4px;
+	margin: 10px 0 5px 0;
+	text-align: center;
+	cursor: pointer;
+	transition: 150ms;
+	font-family: 'Montserrat', sans-serif;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10), 0 2px 2px rgba(0, 0, 0, 0.10), 0 3px 3px rgba(0, 0, 0, 0.10);
+}
+
+.done:hover {
+	filter: brightness(85%);
+}
+
+.setStatus {
+	background-color: rgba(255, 255, 255, 0.3);
+	font-size: 0.8rem;
+	font-weight: 500;
+	font-family: 'Montserrat', sans-serif;
+	color: #fff;
+	padding: 6px 8px;
+	margin-left: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	outline: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: 150ms;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10), 0 2px 2px rgba(0, 0, 0, 0.10), 0 3px 3px rgba(0, 0, 0, 0.10);
+}
+
+.setStatus:hover {
+	filter: brightness(85%);
+}
+
+.finished {
+	display: none;
+	font-size: 0.7rem;
+	padding: 4px 20px;
+	background-color: #346751;
+	color: #f4f4f4;
+	border-radius: 40px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 600;
+	margin: 0 10px;
+	white-space: nowrap;
+}
+
+.complete {
+	display: none;
+}
+
+.task.complete {
+	border-left: 5px solid #346751;
+}
+
+.show {
+	display: block;
+}
+
+.inProgress {
+	border-left: 5px solid #ffd371;
+}
+
+@media (max-width: 600px) {
+	.task h3 {
+		font-size: 1rem;
+	}
+}

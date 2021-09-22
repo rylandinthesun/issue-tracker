@@ -1,0 +1,108 @@
+.addForm {
+	margin-bottom: 40px;
+}
+
+.formControl {
+	margin-bottom: 20px;
+	outline: none;
+}
+
+.formControl label {
+	display: block;
+	margin-bottom: 5px;
+	font-size: 0.9rem;
+	font-weight: 500;
+}
+
+.formControl input {
+	width: 100%;
+	padding: 10px 10px;
+	font-size: 1rem;
+	font-family: 'Montserrat', sans-serif;
+	background: rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	outline: none;
+	color: #fff;
+	border-radius: 2px;
+}
+
+.formControl input::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.formControl textarea {
+	width: 100%;
+	padding: 10px 10px;
+	font-size: 1rem;
+	font-family: 'Montserrat', sans-serif;
+	background: rgba(255, 255, 255, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	outline: none;
+	color: #fff;
+	border-radius: 3px;
+}
+
+.formControl textarea::placeholder {
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.dateTime {
+	display: flex;
+	justify-content: space-between;
+}
+
+.checkboxControl {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin-bottom: 20px;
+}
+
+.checkboxControl > input {
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-o-appearance: none;
+	appearance: none;
+	border: 1px solid rgba(255, 255, 255, 0.4);
+	border-radius: 4px;
+	outline: none;
+	background-color: rgba(255, 255, 255, 0.3);
+}
+
+.checkboxControl > input:checked {
+	background-color: #927fbf;
+}
+
+.btn {
+	padding: 14px 18px;
+	outline: none;
+	border: none;
+	background-color: #927fbf;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+	cursor: pointer;
+	border-radius: 5px;
+	width: 100%;
+	transition: 150ms;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.30), 0 2px 2px rgba(0, 0, 0, 0.30), 0 3px 3px rgba(0, 0, 0, 0.30);
+}
+
+.btn:hover {
+	filter: brightness(85%);
+}
+/* ::-webkit-calendar-picker-indicator {
+	cursor: pointer;
+} */
+
+@media only screen and (max-width: 425px) {
+	.date-time {
+		flex-direction: column;
+	}
+
+	.form-control input[type="date"] {
+		margin-bottom: 20px;
+	}
+}
