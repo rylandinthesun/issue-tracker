@@ -49,7 +49,7 @@ const Home = ({ context }: { context: [] }) => {
         
         {showForm && (
           <div>
-            <AddIssueForm />
+            <AddIssueForm setShowForm={setShowForm} />
           </div>
         )}
 
