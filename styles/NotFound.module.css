@@ -1,0 +1,24 @@
+.notFoundContainer {
+	display: grid;
+	place-items: center;
+	height: 80vh;
+}
+
+.notFoundContainer main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.notFoundContainer div {
+	font-size: 1.4rem;
+}
+
+.notFoundContainer div span {
+	font-style: italic;
+	color: #927fbf;
+}
+
+.notFoundContainer main a {
+	margin-top: 20px;
+}

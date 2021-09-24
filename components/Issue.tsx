@@ -1,4 +1,5 @@
 import { RiCloseCircleLine } from 'react-icons/ri'
+import { FaRegCheckCircle } from 'react-icons/fa'
 import axios, { AxiosResponse } from 'axios'
 import moment from 'moment'
 
@@ -35,14 +36,18 @@ const Issue = ({ title, id, description, date, time, status, complete }: { title
     
     return (
         <div style={complete ? { borderLeft: '5px solid #346751' } : {}} className={status ? `${styles.inProgress} ${styles.task}` : `${styles.task}`}>
-            <h3>{title}
-                
+            <div className={styles.flexContainer}>
+                <h3>{title}
+                    {status ? <span className={!complete ? `${styles.emoji}`: `${styles.emoji} ${styles.complete}`}>🚧</span> : <span className={styles.emoji}>📂</span>}
+                    {complete && <span className={styles.emoji}>👍</span>}
+                </h3>
+   
             <section>
                 <span  className={complete ? `${styles.finished} ${styles.show}` : ''}>{complete ? 'Complete' : null}</span>
-                    <div style={status ? { backgroundColor: '#ffd371', color: '#1c1c25' } : {}} className={complete ? `${styles.complete}` : ''}>{status ? 'In Progress' : 'Open'}</div>
-                    <RiCloseCircleLine onClick={() => deleteIssue(id)} />
+                <div style={status ? { backgroundColor: '#ffd371', color: '#1c1c25' } : {}} className={complete ? `${styles.complete}` : ''}>{status ? 'In Progress' : 'Open'}</div>
+                <RiCloseCircleLine onClick={() => deleteIssue(id)} />
             </section>
-            </h3>
+            </div>
 
             <button onClick={() => updateStatus(id)} className={complete ? `${styles.complete}` : `${styles.setStatus}` }>{ status ? 'Set Open' : 'Start Issue'}</button>
             
@@ -52,7 +57,7 @@ const Issue = ({ title, id, description, date, time, status, complete }: { title
             <div className={complete ? `${styles.complete}` : `${styles.day}` }>
                 <p>Complete by <span>{moment(date).format('dddd MMM Do, YYYY')}</span> at <span>{moment(time, 'HH:mm').format('h:mm A')}</span></p>
                 {status ? (
-                    <button onClick={() => updateComplete(id)} className={styles.done}>Done</button>
+                    <button onClick={() => updateComplete(id)} className={styles.done}>Done<FaRegCheckCircle /></button>
                 ): null}
             </div>
         </div>

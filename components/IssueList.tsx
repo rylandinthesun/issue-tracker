@@ -1,5 +1,5 @@
 import Issue from "./Issue"
-
+import styles from '../styles/Home.module.css'
 
 const IssueList = ({ issues }: { issues: [] }) => {
     return (

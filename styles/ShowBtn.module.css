@@ -22,3 +22,10 @@
 .open {
 	background-color: #346751;
 }
+
+@media (max-width: 600px) {
+	.btnContainer button {
+		font-size: 0.7rem;
+		padding: 10px 12px;
+	}
+}

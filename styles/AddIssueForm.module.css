@@ -103,6 +103,9 @@
 	padding: 10px 10px;
 	border-radius: 3px;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.30), 0 2px 2px rgba(0, 0, 0, 0.30), 0 3px 3px rgba(0, 0, 0, 0.30);
+	animation-name: animateIn;
+	animation-duration: 0.4s;
+	animation-timing-function: ease;
 }
 
 .error svg {
@@ -124,11 +127,23 @@
 } */
 
 @media only screen and (max-width: 425px) {
-	.date-time {
+	.dateTime {
 		flex-direction: column;
 	}
 
-	.form-control input[type="date"] {
-		margin-bottom: 20px;
+	.formControl input[type="date"] {
+		margin-bottom: 25px;
+	}
+}
+
+@keyframes animateIn {
+	from {
+		opacity: 0;
+		transform: translateY(-10px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
 	}
 }
