@@ -1,10 +1,14 @@
 import axios, { AxiosResponse } from 'axios'
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { RiCloseCircleLine } from 'react-icons/ri'
 
 import styles from '../styles/AddIssueForm.module.css'
 
-const AddIssueForm = ({ setShowForm }: { setShowForm: any }) => {
+interface Props {
+    setShowForm: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+const AddIssueForm:React.FC<Props> = ({ setShowForm}) => {
     const [text, setText] = useState('');
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')

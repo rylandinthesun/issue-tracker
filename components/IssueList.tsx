@@ -1,15 +1,18 @@
 import Issue from "./Issue"
-import styles from '../styles/Home.module.css'
+import { Issues } from '../model'
 
-const IssueList = ({ issues }: { issues: [] }) => {
-    return (
-        <div>
-            {issues.map((i: any) => (
-                <Issue key={i.id} id={i.id} title={i.text} description={i.description} date={i.date} time={i.time} status={i.status} complete={i.complete}  />
-            ))}
-            
-        </div>
-    )
+interface Props {
+    issues: Issues[]
 }
 
+const IssueList: React.FC<Props> = ({ issues }) => {
+    return (
+            <div>
+                {issues.map((i: any, index) => (
+                    <Issue key={i.id} id={i.id} title={i.text} description={i.description} date={i.date} time={i.time} status={i.status} complete={i.complete} index={index} />
+                ))}
+            </div>
+    )
+}
+        
 export default IssueList

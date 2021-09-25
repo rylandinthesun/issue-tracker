@@ -4,14 +4,14 @@ import axios from 'axios'
 import AddIssueForm from '../components/AddIssueForm'
 import Header from '../components/Header'
 import ShowFormBtn from '../components/ShowFormBtn'
-import { GetServerSideProps } from 'next'
 import IssueList from '../components/IssueList'
+import Footer from '../components/Footer'
+import { Issues } from '../model'
 
 import styles from '../styles/Home.module.css'
-import Footer from '../components/Footer'
 
-const Home = ({ context }: { context: [] }) => {
-  const [issues, setIssues] = useState(context)
+const Home: React.FC = () => {
+  const [issues, setIssues] = useState <Issues[]>([])
   const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
@@ -58,7 +58,6 @@ const Home = ({ context }: { context: [] }) => {
           <p className={styles.noIssues}>Click <span>Add Issue</span> to start adding issues!</p>
         )}
 
-
         <IssueList issues={issues} />
       </main>
       <Footer />
@@ -67,19 +66,3 @@ const Home = ({ context }: { context: [] }) => {
 }
 
 export default Home
-
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const res = await axios.get('https://fake-server-issue-tracker.herokuapp.com/tasks');
-  const context = await res.data;
-
-  if (!context) {
-    return {
-      notFound: true
-    };
-  }
-
-  return {
-    props: { context }
-  }
-}
