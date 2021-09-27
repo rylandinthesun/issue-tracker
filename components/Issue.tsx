@@ -5,7 +5,17 @@ import moment from 'moment'
 
 import styles from '../styles/Issue.module.css'
 
-const Issue: React.FC<{ title: string, id: number, description: string, date: string, time: string, status: boolean, complete: boolean, index: number }> = ({ title, id, description, date, time, status, complete, index }) => {
+interface Props {
+    id: number
+    title: string
+    description: string
+    date: string
+    time: string
+    status: boolean
+    complete: boolean
+}
+
+const Issue: React.FC<Props> = ({ id, title, description, date, time, status, complete }) => {
 
     const deleteIssue = (id: number) => {
         axios.delete(`https://fake-server-issue-tracker.herokuapp.com/tasks/${id}`).then((res: AxiosResponse) => {

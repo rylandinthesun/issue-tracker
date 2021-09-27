@@ -8,7 +8,7 @@ interface Props {
     setShowForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AddIssueForm:React.FC<Props> = ({ setShowForm}) => {
+const AddIssueForm: React.FC<Props> = ({ setShowForm}) => {
     const [text, setText] = useState('');
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')

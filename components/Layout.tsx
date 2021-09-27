@@ -1,6 +1,6 @@
 import styles from '../styles/Layout.module.css'
 
-const Layout = ({ children }: any) => {
+const Layout: React.FC<{}> = ({ children }) => {
     return (
         <div className={styles.container}>
             { children }

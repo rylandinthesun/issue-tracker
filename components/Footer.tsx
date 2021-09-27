@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styles from '../styles/Footer.module.css'
 
-const Footer = () => {
+const Footer: React.FC = () => {
     return (
         <div className={styles.footer}>
             <div>Copyright &#169; 2021</div>

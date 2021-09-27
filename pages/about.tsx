@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import styles from '../styles/AboutPage.module.css'
 
-const About = () => {
+const About: React.FC = () => {
     return (
         <div className={styles.aboutContainer}>
             <main>

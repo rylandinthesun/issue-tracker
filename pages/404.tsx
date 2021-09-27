@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import styles from '../styles/NotFound.module.css'
 
-const NotFound = () => {
+const NotFound: React.FC = () => {
     return (
         <div className={styles.notFoundContainer}>
             <main>
