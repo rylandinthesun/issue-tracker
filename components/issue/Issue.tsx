@@ -3,7 +3,9 @@ import { FaRegCheckCircle } from 'react-icons/fa'
 import axios, { AxiosResponse } from 'axios'
 import moment from 'moment'
 
-import styles from '../styles/Issue.module.css'
+import styles from './Issue.module.css'
+import {FC} from "react";
+import apiRequestHandler from "../../api/apiRequestHandler";
 
 interface Props {
     id: number
@@ -15,7 +17,18 @@ interface Props {
     complete: boolean
 }
 
-const Issue: React.FC<Props> = ({ id, title, description, date, time, status, complete }) => {
+const Issue: FC<Props> = ({ ...props }) => {
+    const { id, title, description, date, time, status, complete } = props;
+
+    /**
+     * These calls should be made generic and moved to the apiRequestHandler.ts file
+     * The api handler class is a factory class, where we can pass in data like the url
+     * and / or body and have it make the call for us without having to call axios every time
+     * from the component, which breaks the functional component methodology
+     */
+    const deleteIssueGeneric = (id: number, url: string): Promise<String | undefined> => {
+        return apiRequestHandler.delete(url + id);
+    }
 
     const deleteIssue = (id: number) => {
         axios.delete(`https://fake-server-issue-tracker.herokuapp.com/tasks/${id}`).then((res: AxiosResponse) => {
@@ -43,7 +56,11 @@ const Issue: React.FC<Props> = ({ id, title, description, date, time, status, co
         })
     }
 
-    
+
+    /**
+     * Move inline styles to css,
+     * Some unicode emojis will display differently in different systems, I would try and use the unicode string to represent them,
+     */
     return (
             <div style={complete ? { borderLeft: '5px solid #346751' } : {}} className={status ? `${styles.inProgress} ${styles.task}` : `${styles.task}`} >
                 <div className={styles.flexContainer}>
@@ -59,6 +76,18 @@ const Issue: React.FC<Props> = ({ id, title, description, date, time, status, co
                     </section>
                 </div>
 
+                {/* This code is redundant insofar as you have a component that does something similar to this */}
+                {/*     <div className={styles.btnContainer}>
+                            <button className={showForm ? `${styles.close}` : `${styles.open}`} onClick={() => handleShowForm()}>
+                                {showForm ? 'Close' : 'Add Issue'}
+                            </button>
+                        </div>
+                 */}
+                {/* a good technique to practice is taking a component that's used slightly differently in multiple places and
+                    trying to make a generic version of it that can be used everywhere
+
+                    In this case, I would make a button component and pass it a callback function for onCLick, then any props it needs to update
+                 */}
                 <button onClick={() => updateStatus(id)} className={complete ? `${styles.complete}` : `${styles.setStatus}` }>{ status ? 'Set Open' : 'Start Issue'}</button>
                         
                 <p className={complete ? `${styles.complete}` : ''}>{description ? description : null}</p>

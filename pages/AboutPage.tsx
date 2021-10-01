@@ -1,8 +1,9 @@
 import Link from 'next/link'
 
-import styles from '../styles/AboutPage.module.css'
+import styles from './AboutPage.module.css'
+import {FC} from "react";
 
-const About: React.FC = () => {
+const AboutPage: FC = () => {
     return (
         <div className={styles.aboutContainer}>
             <main>
@@ -16,4 +17,4 @@ const About: React.FC = () => {
     )
 }
 
-export default About
+export default AboutPage

@@ -1,6 +1,7 @@
-import styles from '../styles/Header.module.css'
+import styles from './Header.module.css'
+import {FC} from "react";
 
-const Header: React.FC = () => {
+const Header: FC = () => {
 
   return (
     <div className={styles.header}>

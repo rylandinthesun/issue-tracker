@@ -1,14 +1,14 @@
 import axios, { AxiosResponse } from 'axios'
-import React, { useState } from 'react'
+import React, {FC, useState} from 'react'
 import { RiCloseCircleLine } from 'react-icons/ri'
 
-import styles from '../styles/AddIssueForm.module.css'
+import styles from './AddIssueForm.module.css'
 
 interface Props {
     setShowForm: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AddIssueForm: React.FC<Props> = ({ setShowForm}) => {
+const AddIssueForm: FC<Props> = ({ setShowForm}) => {
     const [text, setText] = useState('');
     const [description, setDescription] = useState('')
     const [date, setDate] = useState('')
@@ -20,6 +20,11 @@ const AddIssueForm: React.FC<Props> = ({ setShowForm}) => {
 
     const handleError = () => setError(false)
 
+    /**
+     * This code tries to do too much, we can break it apart a little more
+     * I would break it into handleSubmit and handleUpdate where the second function
+     * is responsible for updating state.
+     */
     const handleSubmit =  async (e: any) => {
         e.preventDefault();
         if (text.length === 0) return setError(true)
@@ -30,6 +35,11 @@ const AddIssueForm: React.FC<Props> = ({ setShowForm}) => {
         }).catch(function (err) {
             console.log(err)
         })
+
+        /**
+         * Why do these fields need to be set? If this exists to reset back to the default state, make it
+         * a function specifically designed to do so
+         */
         setText('');
         setDescription('')
         setDate('')

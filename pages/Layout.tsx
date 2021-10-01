@@ -1,4 +1,4 @@
-import styles from '../styles/Layout.module.css'
+import styles from './Layout.module.css'
 
 const Layout: React.FC<{}> = ({ children }) => {
     return (

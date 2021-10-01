@@ -1,11 +1,14 @@
-import Issue from "./Issue"
-import { Issues } from '../model'
+import Issue from "../issue/Issue"
+import { Issues } from '../../model/model'
+import {FC} from "react";
 
 interface Props {
     issues: Issues[]
 }
 
-const IssueList: React.FC<Props> = ({ issues }) => {
+const IssueList: FC<Props> = ({ ...props }) => {
+    const { issues } = props;
+
     return (
             <div>
                 {issues.map((i) => (

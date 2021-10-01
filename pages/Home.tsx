@@ -1,16 +1,16 @@
 import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import axios from 'axios'
-import AddIssueForm from '../components/AddIssueForm'
-import Header from '../components/Header'
-import ShowFormBtn from '../components/ShowFormBtn'
-import IssueList from '../components/IssueList'
-import Footer from '../components/Footer'
-import { Issues } from '../model'
+import AddIssueForm from '../components/addIssueForm/AddIssueForm'
+import Header from '../components/header/Header'
+import ShowFormBtn from '../components/button/ShowFormBtn'
+import IssueList from '../components/issueList/IssueList'
+import Footer from '../components/footer/Footer'
+import { Issues } from '../model/model'
 
-import styles from '../styles/Home.module.css'
+import styles from './Home.module.css'
 
-const Home: React.FC = () => {
+const Home: FC = () => {
   const [issues, setIssues] = useState <Issues[]>([])
   const [showForm, setShowForm] = useState(false)
 
